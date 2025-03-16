@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregable - Calculadora</title>
+</head>
+
+<body>
+
+    <h1>Calculadora Basica</h1>
+
+    <script>
+        console.log('Tablero de datos')
+        alert('Bienvenido a tu calculadora personal Campista ValleTech')
+
+        let continuar;
+
+        do {
+            let num1 = parseFloat(prompt('Ingresa el primer número: '));
+            let num2 = parseFloat(prompt('Ingresa el segundo número: '));
+            let seleccion = parseFloat(prompt('Que operacion deseas realizar? Para SUMA = 1, Resta = 2, Multiplicacion = 3, Division = 4'));
+
+            if (seleccion >= 1 && seleccion <= 4) {
+                function realizarOperacion(num1, num2, seleccion) {
+                    let resultado;
+                    if (seleccion === 1) {
+                        resultado = num1 + num2;
+                        console.log('El resultado de tu suma es: ', resultado);
+                    } else if (seleccion === 2) {
+                        resultado = num1 - num2;
+                        console.log('El resultado de tu resta es: ', resultado);
+                    } else if (seleccion === 3) {
+                        resultado = num1 * num2;
+                        console.log('El resultado de tu multiplicación es: ', resultado);
+                    } else if (seleccion === 4) {
+                        if (num2 !== 0) {
+                            resultado = num1 / num2;
+                            console.log('El resultado de tu división es: ', resultado);
+                        } else {
+                            console.log('Es imposible dividir por cero');
+                        }
+                    }
+                    return resultado;
+                }
+                realizarOperacion(num1, num2, seleccion);
+            } else if (seleccion === 0) {
+                console.log('Saliendo del programa...');
+                continuar = false;
+            } else {
+                console.log('Dato errado. Inténtalo de nuevo.');
+            }
+
+            if (seleccion !== 0) {
+                continuar = confirm('¿Deseas realizar otra operación?');
+            }
+        } while (continuar);
+
+    </script>
+
+</body>
+
+</html>
